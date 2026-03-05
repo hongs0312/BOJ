@@ -13,8 +13,8 @@ void fast_io() {
 
 int main() {
     #ifdef SH_LOCAL
-    freopen("c++/0_IO_files/in.txt", "r", stdin);
-    freopen("c++/0_IO_files/out.txt", "w", stdout);
+    freopen("c_c++/0_IO_files/in.txt", "r", stdin);
+    freopen("c_c++/0_IO_files/out.txt", "w", stdout);
     #endif
     
     fast_io();
