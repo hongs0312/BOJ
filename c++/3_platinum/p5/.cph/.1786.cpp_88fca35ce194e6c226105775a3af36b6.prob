@@ -1,1 +1,0 @@
-{"name":"Local: 1786","url":"c:\\Users\\hongs\\Desktop\\source_code\\olline_judge\\cpp\\platinum\\p5\\1786.cpp","tests":[{"id":1711673893974,"input":"ABC ABCDAB ABCDABCDABDE\nABCDABD","output":"1\n16"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hongs\\Desktop\\source_code\\olline_judge\\cpp\\platinum\\p5\\1786.cpp","group":"local","local":true}
