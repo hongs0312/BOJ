@@ -99,5 +99,6 @@ $RECYCLE.BIN/
 c++/0_IO_files/*
 exe
 build
+.cph
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,c++,visualstudiocode
