@@ -14,8 +14,8 @@ const double PI = acos(-1);
 v_cpx multiply(v_cpx a, v_cpx b);
 int main() {
     #ifdef SH_LOCAL
-    freopen("c++/0_IO_files/in.txt", "r", stdin);
-    freopen("c++/0_IO_files/out.txt", "w", stdout);
+    freopen("c_c++/0_IO_files/in.txt", "r", stdin);
+    freopen("c_c++/0_IO_files/out.txt", "w", stdout);
     #endif
 
     int n;
