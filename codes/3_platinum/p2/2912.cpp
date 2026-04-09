@@ -19,9 +19,11 @@ typedef struct query {
     p_int range;
 } query;
 
-int sqn, top_cnt = 0, top_color = 0;
-v_int nums, num_cnt, cnt_cnt;
+int sqn;
+v_int nums, num_cnt;
+
 bool cmp(query &a, query &b);
+int check(int c, int half);
 void count_in(int s, int e);
 void count_out(int s, int e);
 int main() {
@@ -39,7 +41,6 @@ int main() {
 
     sqn = int(sqrt(n));
     
-    cnt_cnt.resize(n+1);
     nums.resize(n+1);
     for(int i = 1; i <= n; i++)
         cin >> nums[i];
@@ -71,10 +72,13 @@ int main() {
         if(cur.second < post.second)
             count_out(cur.second+1, post.second);
 
+        ans[q.idx] =  check(c, (cur.second-cur.first+1)/2);
         post = cur;
     }
-    for(int i:ans) cout << i << "\n";
-
+    for(int i:ans) {
+        if(i == 0) cout << "no\n";
+        else cout << "yes " << i << "\n";
+    }
     return 0;
 }
 bool cmp(query &a, query &b) {
@@ -84,32 +88,19 @@ bool cmp(query &a, query &b) {
 
     return a_r.second < b_r.second;
 }
+int check(int c, int half) {
+    for(int i = 1; i <= c; i++) {
+        if(num_cnt[i] > half)
+            return i;
+    }
+    return 0;
+}
 void count_in(int s, int e) {
     int cnt;
-    for(int i = s; i <= e; i++) {
+    for(int i = s; i <= e; i++)
         num_cnt[nums[i]]++;
-
-        cnt = num_cnt[nums[i]];
-
-        top_cnt = max(cnt, top_cnt);
-        
-        cnt_cnt[cnt-1]--;
-        cnt_cnt[cnt]++;
-    }
 }
 void count_out(int s, int e) {
-    int cnt;
-    for(int i = s; i <= e; i++) {
-        cnt = num_cnt[nums[i]];
-
-        if(cnt == 0) continue;
-        
-        cnt_cnt[cnt]--;
-        cnt_cnt[cnt-1]++;
-
-        if(cnt_cnt[top_cnt] == 0)
-            top_cnt--;
-
+    for(int i = s; i <= e; i++)
         num_cnt[nums[i]]--;
-    }
 }
